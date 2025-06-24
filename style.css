@@ -38,11 +38,38 @@ nav {
   margin: 0 15px;
   transition: color 0.2s ease;
 }
+.nav-left a,
+.nav-right a {
+  text-decoration: none;
+  color: #bbb;
+  font-size: 1.1em;
+  margin: 0 15px;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-left a::after,
+.nav-right a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ffffff;
+  transition: width 0.3s ease;
+}
 
 .nav-left a:hover,
 .nav-right a:hover {
   color: #ffffff;
-  font-weight: bold;
+}
+
+.nav-left a:hover::after,
+.nav-right a:hover::after {
+  width: 100%;
+}
+
 }
 
 /* MAIN CONTENT */
