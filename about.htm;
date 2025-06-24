@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>About</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <a href="index.html">home</a>
+    <a href="articles.html">articles</a>
+    <a href="about.html">about</a>
+    <a href="contact.html">contact</a>
+  </nav>
+  <main>
+    <h2>about me</h2>
+    <p>UPSC aspirant who’s sharing thoughts and ideas. Minimalist website for maximum focus.</p>
+  </main>
+</body>
+</html>
