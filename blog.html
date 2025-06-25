@@ -7,14 +7,80 @@
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.png" type="image/png" />
 
-  <!-- Optional: inline CSS fix for override layout tweaks -->
   <style>
-    /* Optional: force main content to left on small screens too */
-    main ul {
-      text-align: left;
-    }
-
-    /* Active nav link underline (backup in case not in style.css) */
+    /* Fallback in case style.css fails to load */
     .nav-left a.active,
     .nav-right a.active {
-      color: #ffffff;
+      color: #fff;
+    }
+
+    .nav-left a.active::after,
+    .nav-right a.active::after {
+      width: 100%;
+    }
+
+    body.light-mode .nav-left a.active,
+    body.light-mode .nav-right a.active {
+      color: #000;
+    }
+
+    body.light-mode .nav-left a.active::after,
+    body.light-mode .nav-right a.active::after {
+      background-color: #000;
+    }
+  </style>
+</head>
+
+<body class="dark-mode">
+
+  <!-- ✅ NAV -->
+  <nav style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+    <div class="nav-left">
+      <a href="blog.html" class="active">blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="about.html">vivek</a>
+    </div>
+  </nav>
+
+  <!-- 🌗 THEME TOGGLE -->
+  <div class="theme-toggle-wrapper">
+    <div id="theme-toggle" class="theme-toggle">
+      <div class="toggle-circle">🌙</div>
+    </div>
+  </div>
+
+  <!-- 📝 BLOG CONTENT -->
+  <main style="width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
+    <h2 style="text-align: left; margin-bottom: 20px;">📝 my writings</h2>
+    <ul style="list-style: none; padding: 0; text-align: left;">
+      <li style="margin-bottom: 10px;">
+        <a href="blogs/lets-fckin-go.html">🔥 let’s fckin go</a>
+      </li>
+    </ul>
+  </main>
+
+  <!-- 🌙 THEME SCRIPT -->
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+    const circle = document.querySelector(".toggle-circle");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      body.classList.remove("dark-mode", "light-mode");
+      body.classList.add(savedTheme);
+      circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-mode");
+      body.classList.toggle("light-mode", !isLight);
+      body.classList.toggle("dark-mode", isLight);
+      circle.textContent = !isLight ? "☀️" : "🌙";
+      localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
+    });
+  </script>
+
+</body>
+</html>
