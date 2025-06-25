@@ -37,13 +37,31 @@
   const body = document.body;
   const circle = document.querySelector(".toggle-circle");
 
+  // Load saved theme on page load
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    body.classList.remove("dark-mode", "light-mode");
+    body.classList.add(savedTheme);
+    circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
+  }
+
+  // On toggle click
   toggle.addEventListener("click", () => {
     const isLight = body.classList.contains("light-mode");
+
+    // Flip theme
     body.classList.toggle("light-mode", !isLight);
     body.classList.toggle("dark-mode", isLight);
+
+    // Update emoji
     circle.textContent = !isLight ? "☀️" : "🌙";
+
+    // Save new theme
+    const newTheme = !isLight ? "light-mode" : "dark-mode";
+    localStorage.setItem("theme", newTheme);
   });
 </script>
+
 
 
 </body>
