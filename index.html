@@ -7,7 +7,8 @@
   <link rel="icon" href="favicon.png" type="image/png">
 
 </head>
-<body>
+<body class="dark-mode">
+
  <nav>
   <div class="nav-left">
     <a href="index.html">vivek</a>
@@ -19,9 +20,31 @@
   </div>
 </nav>
 
+<!-- Theme Toggle Button -->
+<div class="theme-toggle-wrapper">
+  <div id="theme-toggle" class="theme-toggle">
+    <div class="toggle-circle">🌙</div>
+  </div>
+</div>
+
   <main>
     <h1></h1>
     <p>putting my brain on board.</p>
   </main>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+  const circle = document.querySelector(".toggle-circle");
+
+  toggle.addEventListener("click", () => {
+    const isLight = body.classList.contains("light-mode");
+    body.classList.toggle("light-mode", !isLight);
+    body.classList.toggle("dark-mode", isLight);
+    circle.textContent = !isLight ? "☀️" : "🌙";
+  });
+</script>
+
+
 </body>
 </html>
