@@ -8,8 +8,6 @@
 /* BODY: Apple-style font + dark mode */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,6 +15,19 @@ body {
   text-align: center;
   padding: 40px 20px;
 }
+
+/* DARK MODE DEFAULT */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+/* LIGHT MODE */
+body.light-mode {
+  background-color: #f4f4f4;
+  color: #121212;
+}
+
 
 /* NAV BAR */
 nav {
