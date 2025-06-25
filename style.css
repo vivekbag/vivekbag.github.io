@@ -5,18 +5,17 @@
   box-sizing: border-box;
 }
 
-/* BODY: Apple-style font + dark mode */
+/* GLOBAL */
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   text-align: center;
   padding: 40px 20px;
 }
 
-/* DARK MODE DEFAULT */
+/* DARK MODE */
 body.dark-mode {
   background-color: #121212;
   color: #e0e0e0;
@@ -26,8 +25,8 @@ body.dark-mode {
 body.light-mode {
   background-color: #f4f4f4;
   color: #121212;
+  transition: background-color 0.4s ease, color 0.4s ease;
 }
-
 
 /* NAV BAR */
 nav {
@@ -40,15 +39,7 @@ nav {
   padding: 10px 20px;
 }
 
-/* LEFT NAV LINKS */
-.nav-left a,
-.nav-right a {
-  text-decoration: none;
-  color: #bbb;
-  font-size: 1.1em;
-  margin: 0 15px;
-  transition: color 0.2s ease;
-}
+/* NAV LINKS */
 .nav-left a,
 .nav-right a {
   text-decoration: none;
@@ -59,6 +50,7 @@ nav {
   transition: color 0.3s ease;
 }
 
+/* UNDERLINE EFFECT */
 .nav-left a::after,
 .nav-right a::after {
   content: '';
@@ -81,51 +73,77 @@ nav {
   width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-  .nav-left {
-    display: none;
-  }
+/* ACTIVE LINK */
+.nav-left a.active,
+.nav-right a.active {
+  color: #ffffff;
+}
 
-  .nav-right {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    gap: 30px; /* Controls space BETWEEN links */
-    flex-wrap: wrap;
-    margin-top: 10px;
-    padding: 0;
-  }
+.nav-left a.active::after,
+.nav-right a.active::after {
+  width: 100%;
+}
 
-  .nav-right a {
-    margin: 0; /* Remove leftover margin that was causing the column gaps */
-    padding: 5px 10px;
-    font-size: 1.1rem;
-  }
+/* LIGHT MODE NAV OVERRIDES */
+body.light-mode nav a {
+  color: #111;
+}
 
-  nav {
-    flex-direction: column;
-    align-items: center;
-  }
+body.light-mode nav a:hover {
+  color: #000;
+}
 
-  main h1 {
-    font-size: 2rem;
-  }
+body.light-mode .nav-left a::after,
+body.light-mode .nav-right a::after {
+  background-color: #000;
+}
 
-  main p {
-    font-size: 1.1rem;
-  }
+body.light-mode .nav-left a.active,
+body.light-mode .nav-right a.active {
+  color: #000;
+}
+
+body.light-mode .nav-left a.active::after,
+body.light-mode .nav-right a.active::after {
+  background-color: #000;
 }
 
 /* MAIN CONTENT */
 main {
-  max-width: 700px;
+  max-width: 1000px;
+  width: 100%;
   padding: 0 20px;
-  align-items: left
+  margin: auto;
 }
 
-/* --- THEME TOGGLE SWITCH --- */
+/* BLOG LIST LINKS */
+main ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
 
+body.dark-mode main ul li a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode main ul li a:hover {
+  color: #ffffff;
+}
+
+body.light-mode main ul li a {
+  text-decoration: none;
+  color: #121212;
+  transition: color 0.3s ease;
+}
+
+body.light-mode main ul li a:hover {
+  color: #000000;
+}
+
+/* THEME TOGGLE */
 .theme-toggle-wrapper {
   position: fixed;
   top: 20px;
@@ -141,7 +159,6 @@ main {
   display: flex;
   align-items: center;
   padding: 4px;
-  box-sizing: border-box;
   cursor: pointer;
   transition: background 0.3s ease;
 }
@@ -159,99 +176,47 @@ main {
   color: #111;
 }
 
-/* Move circle when light mode is active */
 body.light-mode .toggle-circle {
   transform: translateX(30px);
 }
 
-/* Change background when toggled */
 body.light-mode .theme-toggle {
   background: #ccc;
 }
 
-/* === LIGHT MODE === */
-body.light-mode {
-  background-color: #f4f4f4;
-  color: #121212;
-  transition: background-color 0.4s ease, color 0.4s ease;
-}
+/* MOBILE NAV */
+@media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+  }
 
-body.light-mode nav {
-  background-color: transparent;
-}
+  .nav-left {
+    display: none;
+  }
 
-body.light-mode nav a {
-  color: #111;
-}
+  .nav-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    padding: 0;
+  }
 
-body.light-mode nav a:hover {
-  color: #000;
-}
+  .nav-right a {
+    margin: 0;
+    padding: 5px 10px;
+    font-size: 1.1rem;
+  }
 
-body.light-mode .nav-left a::after,
-body.light-mode .nav-right a::after {
-  background-color: #000;
-}
+  main h1 {
+    font-size: 2rem;
+  }
 
-body.light-mode main h1,
-body.light-mode main h2,
-body.light-mode main p,
-body.light-mode main li,
-body.light-mode main a {
-  color: #121212;
-}
-
-body.light-mode a {
-  text-decoration: none;
-  color: #1a0dab;
-}
-
-body.light-mode a:hover {
-  color: #d33;
-}
-
-/* === BLOG LINKS CONSISTENT IN DARK MODE === */
-
-body.dark-mode main ul li a {
-  text-decoration: none;
-  color: #bbb;
-  transition: color 0.3s ease;
-}
-
-body.dark-mode main ul li a:hover {
-  color: #ffffff;
-}
-
-/* Optional: Light mode refine for blog links */
-body.light-mode main ul li a {
-  text-decoration: none;
-  color: #121212;
-  transition: color 0.3s ease;
-}
-
-body.light-mode main ul li a:hover {
-  color: #000000;
-}
-
-
-/* === ACTIVE PAGE NAV INDICATOR === */
-.nav-left a.active,
-.nav-right a.active {
-  color: #ffffff;
-}
-
-.nav-left a.active::after,
-.nav-right a.active::after {
-  width: 100%;
-}
-
-/* Light mode override */
-body.light-mode .nav-left a.active,
-body.light-mode .nav-right a.active {
-  color: #000;
-}
-
-body.light-mode .nav-left a.active::after,
-body.light-mode .nav-right a.active::after {
-  background-color: #000;
+  main p {
+    font-size: 1.1rem;
+  }
 }
