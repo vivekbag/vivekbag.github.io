@@ -3,66 +3,58 @@
 <head>
   <meta charset="UTF-8">
   <title>vvkb1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png" type="image/png">
-
 </head>
-<body class="dark-mode">
 
- <nav>
-  <div class="nav-left">
-    <a href="index.html">vivek</a>
-  </div>
-  <div class="nav-right">
-    <a href="index.html">home</a>
-    <a href="blog.html">blog</a>
-    <a href="about.html">about</a>
-  </div>
-</nav>
+<body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
 
-<!-- Theme Toggle Button -->
-<div class="theme-toggle-wrapper">
-  <div id="theme-toggle" class="theme-toggle">
-    <div class="toggle-circle">🌙</div>
-  </div>
-</div>
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">vivek</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">home</a>
+      <a href="blog.html">blog</a>
+      <a href="about.html">about</a>
+    </div>
+  </nav>
 
-  <main>
-    <h1></h1>
+  <!-- THEME SWITCH -->
+  <div class="theme-toggle-wrapper">
+    <div id="theme-toggle" class="theme-toggle">
+      <div class="toggle-circle">🌙</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <h1>yo, I'm vivek</h1>
     <p>putting my brain on board.</p>
   </main>
 
-<script>
-  const toggle = document.getElementById("theme-toggle");
-  const body = document.body;
-  const circle = document.querySelector(".toggle-circle");
+  <!-- THEME MEMORY SCRIPT -->
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+    const circle = document.querySelector(".toggle-circle");
 
-  // Load saved theme on page load
-  const savedTheme = localStorage.getItem("theme");
-  if (savedTheme) {
-    body.classList.remove("dark-mode", "light-mode");
-    body.classList.add(savedTheme);
-    circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
-  }
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      body.classList.remove("dark-mode", "light-mode");
+      body.classList.add(savedTheme);
+      circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
+    }
 
-  // On toggle click
-  toggle.addEventListener("click", () => {
-    const isLight = body.classList.contains("light-mode");
-
-    // Flip theme
-    body.classList.toggle("light-mode", !isLight);
-    body.classList.toggle("dark-mode", isLight);
-
-    // Update emoji
-    circle.textContent = !isLight ? "☀️" : "🌙";
-
-    // Save new theme
-    const newTheme = !isLight ? "light-mode" : "dark-mode";
-    localStorage.setItem("theme", newTheme);
-  });
-</script>
-
-
-
+    toggle.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-mode");
+      body.classList.toggle("light-mode", !isLight);
+      body.classList.toggle("dark-mode", isLight);
+      circle.textContent = !isLight ? "☀️" : "🌙";
+      localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
+    });
+  </script>
 </body>
 </html>
