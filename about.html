@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="dark-mode">
 
   <nav>
     <div class="nav-left">
@@ -19,6 +19,14 @@
     </div>
   </nav>
 
+<!-- Theme Toggle Button -->
+<div class="theme-toggle-wrapper">
+  <div id="theme-toggle" class="theme-toggle">
+    <div class="toggle-circle">🌙</div>
+  </div>
+</div>
+
+
   <main>
     <img src="favicon.png" alt="vivek" width="160" height="160" style="border-radius: 50%; margin-bottom: 20px;">
 
@@ -28,6 +36,20 @@
       making things, breaking limits, living full screen.
     </p>
   </main>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+  const circle = document.querySelector(".toggle-circle");
+
+  toggle.addEventListener("click", () => {
+    const isLight = body.classList.contains("light-mode");
+    body.classList.toggle("light-mode", !isLight);
+    body.classList.toggle("dark-mode", isLight);
+    circle.textContent = !isLight ? "☀️" : "🌙";
+  });
+</script>
+
 
 </body>
 </html>
