@@ -6,34 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="favicon.png" type="image/png" />
-
-  <style>
-    /* Fallback in case style.css fails to load */
-    .nav-left a.active,
-    .nav-right a.active {
-      color: #fff;
-    }
-
-    .nav-left a.active::after,
-    .nav-right a.active::after {
-      width: 100%;
-    }
-
-    body.light-mode .nav-left a.active,
-    body.light-mode .nav-right a.active {
-      color: #000;
-    }
-
-    body.light-mode .nav-left a.active::after,
-    body.light-mode .nav-right a.active::after {
-      background-color: #000;
-    }
-  </style>
 </head>
 
-<body class="dark-mode">
+<body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
 
-  <!-- ✅ NAV -->
+  <!-- ✅ NAV: blog LEFT, vivek RIGHT -->
   <nav style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
     <div class="nav-left">
       <a href="blog.html" class="active">blog</a>
@@ -50,17 +27,16 @@
     </div>
   </div>
 
-  <!-- 📝 BLOG CONTENT -->
-  <main style="width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
-    <h2 style="text-align: left; margin-bottom: 20px;">📝 my writings</h2>
-    <ul style="list-style: none; padding: 0; text-align: left;">
-      <li style="margin-bottom: 10px;">
-        <a href="blogs/les-fckin-go.html">🔥 let’s fckin go</a>
-      </li>
+  <!-- 📝 BLOG CONTENT: left aligned -->
+  <main style="flex: 1; width: 100%; max-width: 1000px; margin: auto; padding: 20px; text-align: left;">
+    <h2 style="margin-bottom: 20px;">📝 my writings</h2>
+    <ul style="list-style: none; padding: 0;">
+      <li><a href="blogs/les-fckin-go.html">🔥 les fckin go</a></li>
+      <!-- add more blog links below -->
     </ul>
   </main>
 
-  <!-- 🌙 THEME SCRIPT -->
+  <!-- 🎯 THEME TOGGLE SCRIPT -->
   <script>
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
