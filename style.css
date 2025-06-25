@@ -232,3 +232,26 @@ body.light-mode main ul li a {
 body.light-mode main ul li a:hover {
   color: #000000;
 }
+
+
+/* === ACTIVE PAGE NAV INDICATOR === */
+.nav-left a.active,
+.nav-right a.active {
+  color: #ffffff;
+}
+
+.nav-left a.active::after,
+.nav-right a.active::after {
+  width: 100%;
+}
+
+/* Light mode override */
+body.light-mode .nav-left a.active,
+body.light-mode .nav-right a.active {
+  color: #000;
+}
+
+body.light-mode .nav-left a.active::after,
+body.light-mode .nav-right a.active::after {
+  background-color: #000;
+}
