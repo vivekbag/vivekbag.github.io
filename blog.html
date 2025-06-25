@@ -8,22 +8,9 @@
   
 </head>
 
-<script>
-  const toggle = document.getElementById("theme-toggle");
-  const body = document.body;
-  const circle = document.querySelector(".toggle-circle");
 
-  toggle.addEventListener("click", () => {
-    body.classList.toggle("light-mode");
-    body.classList.toggle("dark-mode");
 
-    // Change icon inside circle
-    const isLight = body.classList.contains("light-mode");
-    circle.textContent = isLight ? "☀️" : "🌙";
-  });
-</script>
-
-<body>
+<body class="dark-mode">
  <nav>
   <div class="nav-left">
     <a href="index.html">vivek</a>
@@ -46,5 +33,21 @@
       <li><a href="writings/post1.html">Post 1: How I Survived UPSC Week</a></li>
     </ul>
   </main>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+  const circle = document.querySelector(".toggle-circle");
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+    body.classList.toggle("dark-mode");
+
+    // Change icon inside circle
+    const isLight = body.classList.contains("light-mode");
+    circle.textContent = isLight ? "☀️" : "🌙";
+  });
+</script>
+
 </body>
 </html>
