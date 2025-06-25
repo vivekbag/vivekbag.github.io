@@ -2,63 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.png" type="image/png" />
-</head>
-
-<body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
-
-  <!-- ✅ NAV: blog LEFT, vivek RIGHT -->
-<nav style="width: 100%; max-width: 1000px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 20px;">
-  <div class="nav-left">
-    <a href="blog.html" class="active">blog</a>
-  </div>
-  <div class="nav-right">
-    <a href="about.html">vivek</a>
-  </div>
-</nav>
-
-
-
-  <!-- 🌗 THEME TOGGLE -->
-  <div class="theme-toggle-wrapper">
-    <div id="theme-toggle" class="theme-toggle">
-      <div class="toggle-circle">🌙</div>
-    </div>
-  </div>
-
-  <!-- 📝 BLOG CONTENT: left aligned -->
- <main style="flex: 1; width: 100%; max-width: 1000px; margin: auto; padding: 40px 20px; text-align: left;">
- 
-  <ul style="list-style: none; padding-left: 0;">
-    <li style="margin-bottom: 10px;"><a href="blogs/les-fckin-go.html">1. let’s fckin go</a></li>
-    <!-- more posts -->
-  </ul>
-</main>
-
-  <!-- 🎯 THEME TOGGLE SCRIPT -->
-  <script>
-    const toggle = document.getElementById("theme-toggle");
-    const body = document.body;
-    const circle = document.querySelector(".toggle-circle");
-
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      body.classList.remove("dark-mode", "light-mode");
-      body.classList.add(savedTheme);
-      circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Blog | Vivek Bagel</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      background: #f9f9f9;
+      color: #222;
     }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .post {
+      background: white;
+      padding: 1.5rem;
+      margin: 1rem auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+      max-width: 800px;
+      transition: all 0.2s ease;
+    }
+    .post:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+    .post a {
+      text-decoration: none;
+      color: #0056d6;
+    }
+    .post a:hover {
+      text-decoration: underline;
+    }
+    .post p {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h1>📝 My Latest Substack Posts</h1>
 
-    toggle.addEventListener("click", () => {
-      const isLight = body.classList.contains("light-mode");
-      body.classList.toggle("light-mode", !isLight);
-      body.classList.toggle("dark-mode", isLight);
-      circle.textContent = !isLight ? "☀️" : "🌙";
-      localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
-    });
+  <div id="substack-posts">
+    <p>Loading articles from Substack...</p>
+  </div>
+
+  <script>
+    fetch("https://api.rss2json.com/v1/api.json?rss_url=https://vvkb.substack.com/feed")
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("substack-posts");
+        container.innerHTML = "";
+        data.items.slice(0, 5).forEach(item => {
+          const post = `
+            <div class="post">
+              <h2><a href="${item.link}" target="_blank">${item.title}</a></h2>
+              <p>${item.description.replace(/<[^>]+>/g, '').substring(0, 220)}...</p>
+            </div>
+          `;
+          container.innerHTML += post;
+        });
+      })
+      .catch(err => {
+        document.getElementById("substack-posts").innerHTML = "<p>Could not load Substack posts. Try again later.</p>";
+        console.error("Substack fetch error:", err);
+      });
   </script>
-
 </body>
 </html>
