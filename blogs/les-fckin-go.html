@@ -2,25 +2,23 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>blog</title>
+  <title>let’s fckin go – blog by vivek</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="favicon.png" type="image/png" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../favicon.png" type="image/png" />
 </head>
 
 <body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
 
-  <!-- ✅ NAV: blog LEFT, vivek RIGHT -->
-<nav style="width: 100%; max-width: 1000px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 20px;">
-  <div class="nav-left">
-    <a href="blog.html" class="active">blog</a>
-  </div>
-  <div class="nav-right">
-    <a href="about.html">vivek</a>
-  </div>
-</nav>
-
-
+  <!-- ✅ NAV -->
+  <nav>
+    <div class="nav-left">
+      <a href="../blog.html">blog</a>
+    </div>
+    <div class="nav-right">
+      <a href="../about.html">vivek</a>
+    </div>
+  </nav>
 
   <!-- 🌗 THEME TOGGLE -->
   <div class="theme-toggle-wrapper">
@@ -29,40 +27,35 @@
     </div>
   </div>
 
-  <!-- 📝 BLOG CONTENT: left aligned -->
- <!-- Main Post -->
-  <main style="flex: 1; max-width: 700px; margin: auto; padding: 40px 20px; text-align: left;">
-    <h1 style="margin-bottom: 20px;">🔥 let’s fckin go</h1>
-    <p><em>Written at 03:59, July 24, 2025</em></p>
+  <!-- 📝 BLOG POST -->
+  <main class="page-wrapper">
+    <h1 style="margin-bottom: 10px;">let’s fckin go</h1>
+    <p class="subtitle" style="margin-bottom: 30px;">Launched a day ago • Science & History</p>
 
-    <p style="margin-top: 20px;">
-      it hurt when you want to move towards your goals, but don’t. but what hurt most is that you never wanted that goal, all the plans, pledge and practices you try to introduce in your life was a facade to hide someone who can’t do anything.
-    </p>
+    <p>it hurt when you want to move towards your goals, but don’t. but what hurt most is that you never wanted that goal, all the plans, pledge and practices you try to introduce in your life was a facade to hide someone who can’t do anything.</p>
 
-    <p>
-      but why it hurts? it hurts coz it’s you forcing yourself to be a slave which you never was. a master of soul now waintin for the next dopamine hit.
-    </p>
+    <p>but why it hurts? it hurts coz it’s you forcing yourself to be a slave which you never was. a master of soul now waintin for the next dopamine hit.</p>
 
-    <p>
-      look around and you’ll see that every excuse you have is not really there, it’s your ghost which haunts you bcoz you want to.
-    </p>
+    <p>look around and you’ll see that every excuse you have is not really there, it’s your ghost which haunts you bcoz you want to.</p>
 
-    <p><strong>so first want something more than anything, and be obsessed to have it</strong><br>
-    as Naval says:<br>
-    <q>“Replace all your desires with one.”</q></p>
+    <p>so first want something more than anything, and be obsessed to have it.<br>
+    as Naval says: <br><strong>“Replace all your desires with one”</strong></p>
 
-    <p><strong>So right now at 03:59 July 24 2025 I decided:</strong><br>
-    I’ll do whatever it takes or everything to clear <strong>UPSC 2026</strong> — pre, mains, interview — and be in the <strong>top 10 Ranks</strong> in the final merit list.
-    </p>
+    <p>So right now at 03:59 July 24 2025 I decided that I’ll do whatever it takes or everything to clear UPSC 2026 pre, mains, interview and be in the top 10 Ranks in the final merit list.</p>
 
-    <p>And what’s most impt is: <strong>I’ll do it myself</strong>. Let this fcking world see what I’m capable of.</p>
+    <p>and what most impt is that i’ll do it myself. let this fcking world see what i’m capable of.</p>
 
-    <ol style="margin-top: 20px;">
-      <li>understand what UPSC wants</li>
-      <li>give what UPSC wants</li>
-    </ol>
+    <ul>
+      <li>understand what upsc want</li>
+      <li>give what upsc want</li>
+    </ul>
+
+    <hr style="margin: 40px 0; border: none; border-top: 1px solid #444;" />
+
+    <p style="font-size: 0.9rem; color: #888;">1 Like</p>
   </main>
-  <!-- 🎯 THEME TOGGLE SCRIPT -->
+
+  <!-- ⚡ THEME SCRIPT -->
   <script>
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
@@ -83,6 +76,5 @@
       localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
     });
   </script>
-
 </body>
 </html>
