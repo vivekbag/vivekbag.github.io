@@ -1,1 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>let's fckin go – blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="icon" href="../favicon.png" type="image/png" />
+</head>
+
+<body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- Nav -->
+  <nav>
+    <div class="nav-left">
+      <a href="../index.html">vivek</a>
+    </div>
+    <div class="nav-right">
+      <a href="../index.html">home</a>
+      <a href="../blog.html">blog</a>
+      <a href="../about.html">about</a>
+    </div>
+  </nav>
+
+  <!-- Theme Toggle -->
+  <div class="theme-toggle-wrapper">
+    <div id="theme-toggle" class="theme-toggle">
+      <div class="toggle-circle">🌙</div>
+    </div>
+  </div>
+
+  <!-- Main Post -->
+  <main style="flex: 1; max-width: 700px; margin: auto; padding: 40px 20px; text-align: left;">
+    <h1 style="margin-bottom: 20px;">🔥 let’s fckin go</h1>
+    <p><em>Written at 03:59, July 24, 2025</em></p>
+
+    <p style="margin-top: 20px;">
+      it hurt when you want to move towards your goals, but don’t. but what hurt most is that you never wanted that goal, all the plans, pledge and practices you try to introduce in your life was a facade to hide someone who can’t do anything.
+    </p>
+
+    <p>
+      but why it hurts? it hurts coz it’s you forcing yourself to be a slave which you never was. a master of soul now waintin for the next dopamine hit.
+    </p>
+
+    <p>
+      look around and you’ll see that every excuse you have is not really there, it’s your ghost which haunts you bcoz you want to.
+    </p>
+
+    <p><strong>so first want something more than anything, and be obsessed to have it</strong><br>
+    as Naval says:<br>
+    <q>“Replace all your desires with one.”</q></p>
+
+    <p><strong>So right now at 03:59 July 24 2025 I decided:</strong><br>
+    I’ll do whatever it takes or everything to clear <strong>UPSC 2026</strong> — pre, mains, interview — and be in the <strong>top 10 Ranks</strong> in the final merit list.
+    </p>
+
+    <p>And what’s most impt is: <strong>I’ll do it myself</strong>. Let this fcking world see what I’m capable of.</p>
+
+    <ol style="margin-top: 20px;">
+      <li>understand what UPSC wants</li>
+      <li>give what UPSC wants</li>
+    </ol>
+  </main>
+
+  <!-- Theme Script -->
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+    const circle = document.querySelector(".toggle-circle");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      body.classList.remove("dark-mode", "light-mode");
+      body.classList.add(savedTheme);
+      circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-mode");
+      body.classList.toggle("light-mode", !isLight);
+      body.classList.toggle("dark-mode", isLight);
+      circle.textContent = !isLight ? "☀️" : "🌙";
+      localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
+    });
+  </script>
+</body>
+</html>
 
