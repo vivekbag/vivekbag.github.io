@@ -10,35 +10,33 @@
 
 <body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
 
-  <!-- NAV: vivek left, blog right -->
-  <nav style="width: 100%; justify-content: space-between;">
+  <!-- ✅ NAV: blog LEFT, vivek RIGHT -->
+  <nav style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
     <div class="nav-left">
-      <a href="about.html">vivek</a>
+      <a href="blog.html">blog</a>
     </div>
     <div class="nav-right">
-      <a href="blog.html">blog</a>
+      <a href="about.html">vivek</a>
     </div>
   </nav>
 
-  <!-- THEME TOGGLE -->
+  <!-- 🌗 THEME TOGGLE -->
   <div class="theme-toggle-wrapper">
     <div id="theme-toggle" class="theme-toggle">
       <div class="toggle-circle">🌙</div>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- 📝 BLOG CONTENT: left aligned -->
   <main style="flex: 1; width: 100%; max-width: 1000px; margin: auto; padding: 20px; text-align: left;">
-
     <h2 style="margin-bottom: 20px;">📝 my writings</h2>
     <ul style="list-style: none; padding: 0;">
-      <li><a href="blogs/lets-fckin-go.html">🔥 let’s fckin go</a></li>
-      <!-- add more blog posts here -->
+      <li><a href="blog/les-fckin-go.html">🔥 les fckin go</a></li>
+      <!-- add more blog links below -->
     </ul>
-
   </main>
 
-  <!-- THEME SCRIPT -->
+  <!-- 🎯 THEME TOGGLE SCRIPT -->
   <script>
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
