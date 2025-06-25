@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png" type="image/png">
+</head>
+
+<body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-left">
+      <a href="index.html">vivek</a>
+    </div>
+    <div class="nav-right">
+      <a href="index.html">home</a>
+      <a href="blog.html">blog</a>
+      <a href="about.html">about</a>
+    </div>
+  </nav>
+
+  <!-- THEME TOGGLE -->
+  <div class="theme-toggle-wrapper">
+    <div id="theme-toggle" class="theme-toggle">
+      <div class="toggle-circle">🌙</div>
+    </div>
+  </div>
+
+  <!-- BLOG CONTENT -->
+
+<main>
+  <h2>📝 my writings</h2>
+  <ul style="list-style: none; padding: 0; text-align: left; max-width: 600px;">
+    <li><a href="writings/post1.html">Post 1: How I Survived UPSC Week</a></li>
+    <li><a href="writings/demonmode.html">Post 2: Demon Mode Explained</a></li>
+  </ul>
+</main>
+
+  
+
+  <!-- THEME MEMORY SCRIPT -->
+  <script>
+    const toggle = document.getElementById("theme-toggle");
+    const body = document.body;
+    const circle = document.querySelector(".toggle-circle");
+
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      body.classList.remove("dark-mode", "light-mode");
+      body.classList.add(savedTheme);
+      circle.textContent = savedTheme === "light-mode" ? "☀️" : "🌙";
+    }
+
+    toggle.addEventListener("click", () => {
+      const isLight = body.classList.contains("light-mode");
+      body.classList.toggle("light-mode", !isLight);
+      body.classList.toggle("dark-mode", isLight);
+      circle.textContent = !isLight ? "☀️" : "🌙";
+      localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
+    });
+  </script>
+
+</body>
+</html>
