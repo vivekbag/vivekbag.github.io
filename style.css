@@ -210,3 +210,25 @@ body.light-mode a:hover {
   color: #d33;
 }
 
+/* === BLOG LINKS CONSISTENT IN DARK MODE === */
+
+body.dark-mode main ul li a {
+  text-decoration: none;
+  color: #bbb;
+  transition: color 0.3s ease;
+}
+
+body.dark-mode main ul li a:hover {
+  color: #ffffff;
+}
+
+/* Optional: Light mode refine for blog links */
+body.light-mode main ul li a {
+  text-decoration: none;
+  color: #121212;
+  transition: color 0.3s ease;
+}
+
+body.light-mode main ul li a:hover {
+  color: #000000;
+}
