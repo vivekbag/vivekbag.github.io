@@ -1,47 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 
 <body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
 
-  <!-- NAV -->
-  <nav>
+  <!-- Minimal Top Nav -->
+  <nav style="width: 100%; justify-content: space-between;">
     <div class="nav-left">
-      <a href="index.html">vivek</a>
+      <a href="blog.html">blog</a>
     </div>
     <div class="nav-right">
-      <a href="index.html">home</a>
-      <a href="blog.html">blog</a>
-      <a href="about.html">about</a>
+      <a href="about.html">vivek</a>
     </div>
   </nav>
 
-  <!-- THEME TOGGLE -->
+  <!-- Theme Toggle -->
   <div class="theme-toggle-wrapper">
     <div id="theme-toggle" class="theme-toggle">
       <div class="toggle-circle">🌙</div>
     </div>
   </div>
 
-  <!-- BLOG CONTENT -->
+  <!-- Main Blog Layout -->
+  <main style="flex: 1; display: flex; justify-content: space-between; width: 100%; max-width: 1000px; margin: auto; padding: 20px;">
 
-<main>
-  
-  <ul style="list-style: none; padding: 0; text-align: left; max-width: 600px;">
-    <li><a href="blogs/les-fckin-go.html">Post: let’s fckin go 🔥</a></li>
+    <!-- Blog List Section -->
+    <div style="flex: 2; text-align: left;">
+      <h2 style="margin-bottom: 20px;">📝 my writings</h2>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="blogs/lets-fckin-go.html">🔥 let’s fckin go</a></li>
+        <!-- Add more posts here -->
+      </ul>
+    </div>
 
-  </ul>
-</main>
+    <!-- About Sidebar -->
+    <div style="flex: 1; padding-left: 40px; text-align: right;">
+      <p style="font-weight: bold;">vivek</p>
+      <p style="font-size: 0.9rem; color: #888;">aspiring top 10 ranker • upsc 2026</p>
+      <p style="font-size: 0.9rem; color: #888;">i write to keep my brain raw.</p>
+    </div>
+  </main>
 
-  
-
-  <!-- THEME MEMORY SCRIPT -->
+  <!-- Theme Script -->
   <script>
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
@@ -62,6 +68,5 @@
       localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
     });
   </script>
-
 </body>
 </html>
