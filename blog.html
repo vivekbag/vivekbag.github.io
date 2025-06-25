@@ -5,8 +5,24 @@
   <title>blog</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.png" type="image/png">
-
+  
 </head>
+
+<script>
+  const toggle = document.getElementById("theme-toggle");
+  const body = document.body;
+  const circle = document.querySelector(".toggle-circle");
+
+  toggle.addEventListener("click", () => {
+    body.classList.toggle("light-mode");
+    body.classList.toggle("dark-mode");
+
+    // Change icon inside circle
+    const isLight = body.classList.contains("light-mode");
+    circle.textContent = isLight ? "☀️" : "🌙";
+  });
+</script>
+
 <body>
  <nav>
   <div class="nav-left">
@@ -18,6 +34,12 @@
     <a href="about.html">about</a>
   </div>
 </nav>
+<div class="theme-toggle-wrapper">
+  <div id="theme-toggle" class="theme-toggle">
+    <div class="toggle-circle">🌙</div>
+  </div>
+</div>
+
   <main>
     <h2>my writings</h2>
     <ul>
