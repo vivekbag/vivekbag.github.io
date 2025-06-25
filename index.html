@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>vvkb1</title>
+  <meta charset="UTF-8" />
+  <title>blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="favicon.png" type="image/png" />
 </head>
 
 <body class="dark-mode" style="min-height: 100vh; display: flex; flex-direction: column;">
 
-  <!-- NAV -->
-  <nav>
-    <div class="nav-right">
-      <a href="about.html">vivek</a>
-    </div>
-    <div class="nav-left">
-     
-      <a href="blog.html">blog</a>
-     
-    </div>
-  </nav>
+  <!-- ✅ NAV: blog LEFT, vivek RIGHT -->
+<nav style="width: 100%; max-width: 1000px; margin: auto; display: flex; justify-content: space-between; align-items: center; padding: 20px;">
+  <div class="nav-left">
+    <a href="blog.html" class="active">blog</a>
+  </div>
+  <div class="nav-right">
+    <a href="about.html">vivek</a>
+  </div>
+</nav>
 
-  <!-- THEME SWITCH -->
+
+
+  <!-- 🌗 THEME TOGGLE -->
   <div class="theme-toggle-wrapper">
     <div id="theme-toggle" class="theme-toggle">
       <div class="toggle-circle">🌙</div>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
-  <main style="flex: 1; display: flex; flex-direction: column; justify-content: center; align-items: center;">
-    <h1>yo, I'm vivek</h1>
-    <p>putting my brain on board.</p>
-  </main>
+  <!-- 📝 BLOG CONTENT: left aligned -->
+ <main style="flex: 1; width: 100%; max-width: 1000px; margin: auto; padding: 40px 20px; text-align: left;">
+ 
+  <ul style="list-style: none; padding-left: 0;">
+    <li style="margin-bottom: 10px;"><a href="blogs/les-fckin-go.html">1. let’s fckin go</a></li>
+    <!-- more posts -->
+  </ul>
+</main>
 
-  <!-- THEME MEMORY SCRIPT -->
+  <!-- 🎯 THEME TOGGLE SCRIPT -->
   <script>
     const toggle = document.getElementById("theme-toggle");
     const body = document.body;
@@ -56,5 +59,6 @@
       localStorage.setItem("theme", !isLight ? "light-mode" : "dark-mode");
     });
   </script>
+
 </body>
 </html>
